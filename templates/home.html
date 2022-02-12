@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+
+{% block title %} Home {% endblock %}
+    
+{% block content %}
+
+
+<div class="container my-5">
+    {% for article in article_list %}
+
+    <span class="badge rounded-pill bg-success">Author : {{article.author}}</span>
+    <h1><a href="{% url 'article_detail' article.slug %}">{{article.title}}</a></h1>
+
+    {% endfor %}
+</div>
+    
+{% endblock %}
+    

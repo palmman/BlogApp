@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+
+{% block title %} Home {% endblock %}
+    
+{% block content %}
+
+
+<div class="container my-5 text-center">
+
+
+    <span class="badge rounded-pill bg-success">Author : {{article.author}}, {{article.published}}</span>
+    <h1>{{article.title}}</h1>
+    <p>{{article.description}}</p>
+
+    {% if request.user == article.author %}
+    <button class="btn btn-danger mx-3 mt-3"><a href="{% url 'delete_article' article.slug %}" >Delete</a></button>
+    <button class="btn btn-success mx-3 mt-3"><a href="{% url 'update_article' article.slug %}">Edit</a></button>
+    {% endif %}
+
+</div>
+    
+{% endblock %}
+    
